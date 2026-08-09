@@ -9,7 +9,7 @@
   [![Build Status](https://img.shields.io/github/actions/workflow/status/lukas-sgx/bazin/ci.yml?style=for-the-badge)](https://github.com/lukas-sgx/bazin/actions)
 
   <p align="center">
-    Light Self Hosted CI/CD.
+    Light Self Hosted CI/CD runner.
     <br />
     <a href="https://github.com/lukas-sgx/bazin"><strong>Explore the repository »</strong></a>
     <br />
