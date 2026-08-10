@@ -20,7 +20,6 @@ where
     pb
 }
 
-#[warn(dead_code)]
 pub fn new_progress<S>(msg: S) -> ProgressBar
 where
     S: Into<Cow<'static, str>>,
