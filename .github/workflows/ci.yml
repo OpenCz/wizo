@@ -21,8 +21,13 @@ jobs:
       - name: fmt
         run: |
           cargo fmt
+          cargo clippy
           git diff --exit-code && exit $?
-
+          
+      - name: lint
+        run: |
+          cargo clippy --fix
+          git diff --exit-code && exit $?
   build:
     needs: sanity-check
     runs-on: ${{ matrix.platform.os || 'ubuntu-latest' }}
