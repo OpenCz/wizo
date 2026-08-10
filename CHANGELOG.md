@@ -3,6 +3,11 @@
 ## [0.0.1-alpha](https://github.com/OpenCz/wizo/compare/wizo-v0.0.1-alpha...wizo-v0.0.1-alpha) (2026-08-10)
 
 
+* release v0.0.1-alpha ([7b2fcdc](https://github.com/OpenCz/wizo/commit/7b2fcdc73ae3a2fa6aaa32822243fbf82ba65cf0))
+
+## [0.0.1-alpha](https://github.com/OpenCz/wizo/compare/wizo-v0.0.1-alpha...wizo-v0.0.1-alpha) (2026-08-10)
+
+
 * release v0.0.1-alpha ([ff95a71](https://github.com/OpenCz/wizo/commit/ff95a71f2b2070eea1bb4b31f68b0da634d8c0e3))
 * release v0.0.1-alpha ([61a816c](https://github.com/OpenCz/wizo/commit/61a816ca016834c66203c4757091364cf55f5104))
 
