@@ -1,10 +1,10 @@
 [package]
-name = "bazin"
+name = "wizo"
 version = "0.1.0"
 edition = "2024"
 
 description = "Light Self Hosted CI/CD runner"
-repository = "https://github.com/OpenCz/bazin"
+repository = "https://github.com/OpenCz/wizo"
 license-file = "LICENSE"
 authors = ["lukas-sgx <lukas.soigneux@epitech.eu>"]
 

@@ -1,4 +1,4 @@
-name: bazin - CI
+name: wizo - CI
 
 on:
   push:
@@ -37,18 +37,18 @@ jobs:
           - name: linux-x86_64
             target: x86_64-unknown-linux-musl
             use-cross: true
-            output: bazin
+            output: wizo
             
           - name: linux-aarch64
             target: aarch64-unknown-linux-musl
             use-cross: true
-            output: bazin
+            output: wizo
             
           - name: windows-x86_64
             os: windows-latest
             target: x86_64-pc-windows-msvc
             use-cross: false
-            output: bazin.exe
+            output: wizo.exe
 
     steps:
     - uses: actions/checkout@v6
@@ -78,7 +78,7 @@ jobs:
     - name: Push Build Artifacts
       uses: actions/upload-artifact@v7
       with:
-        name: bazin-${{ matrix.platform.name }}
+        name: wizo-${{ matrix.platform.name }}
         path: target/${{ matrix.platform.target }}/release/${{ matrix.platform.output }}
         retention-days: 5
 
