@@ -1,6 +1,6 @@
 use clap::Parser;
 
-use crate::{args::Commands, commands::runner};
+use crate::args::Commands;
 
 mod args;
 mod commands;
@@ -12,7 +12,7 @@ fn main() {
 
     match args.command {
         Commands::Runner { dry_run, jobs } => {
-            runner::handle(dry_run, jobs);
+            commands::runner::handle(dry_run, jobs);
         }
     }
 }
