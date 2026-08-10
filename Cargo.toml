@@ -3,7 +3,7 @@ name = "wizo"
 version = "0.0.1-alpha"
 edition = "2024"
 
-description = "Light Self Hosted CI/CD runner"
+description = "Light Self Hosted CI/CD"
 repository = "https://github.com/OpenCz/wizo"
 license = "GPL-3.0-or-later"
 authors = ["lukas-sgx <lukas.soigneux@epitech.eu>"]

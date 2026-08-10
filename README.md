@@ -9,7 +9,7 @@
   [![Build Status](https://img.shields.io/github/actions/workflow/status/OpenCz/wizo/ci.yml?style=for-the-badge)](https://github.com/OpenCz/wizo/actions)
 
   <p align="center">
-    Light Self Hosted CI/CD runner.
+    Light Self Hosted CI/CD.
     <br />
     <a href="https://github.com/OpenCz/wizo"><strong>Explore the repository »</strong></a>
     <br />
