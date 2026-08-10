@@ -1,24 +1,24 @@
 <div align="center">
-  <a href="https://github.com/lukas-sgx/bazin/">
-    <img src="https://github.com/lukas-sgx/bazin/blob/main/assets/bazin-logo.png?raw=true" alt="Logo" height="180" style="border-radius: 10px">
+  <a href="https://github.com/OpenCz/bazin/">
+    <img src="https://github.com/OpenCz/bazin/blob/main/assets/bazin-logo.png?raw=true" alt="Logo" height="180" style="border-radius: 10px">
   </a>
 
   <h3 align="center">Bazin</h3>
 
-  [![License](https://img.shields.io/github/license/lukas-sgx/bazin?style=for-the-badge)](./LICENSE)
-  [![Build Status](https://img.shields.io/github/actions/workflow/status/lukas-sgx/bazin/ci.yml?style=for-the-badge)](https://github.com/lukas-sgx/bazin/actions)
+  [![License](https://img.shields.io/github/license/OpenCz/bazin?style=for-the-badge)](./LICENSE)
+  [![Build Status](https://img.shields.io/github/actions/workflow/status/OpenCz/bazin/ci.yml?style=for-the-badge)](https://github.com/OpenCz/bazin/actions)
 
   <p align="center">
     Light Self Hosted CI/CD runner.
     <br />
-    <a href="https://github.com/lukas-sgx/bazin"><strong>Explore the repository »</strong></a>
+    <a href="https://github.com/OpenCz/bazin"><strong>Explore the repository »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lukas-sgx/bazin">View Demo</a>
+    <a href="https://github.com/OpenCz/bazin">View Demo</a>
     &middot;
-    <a href="https://github.com/lukas-sgx/bazin/issues/new?template=bug-report.yml">Report Bug</a>
+    <a href="https://github.com/OpenCz/bazin/issues/new?template=bug-report.yml">Report Bug</a>
     &middot;
-    <a href="https://github.com/lukas-sgx/bazin/issues/new?template=feature-request.yml">Request Feature</a>
+    <a href="https://github.com/OpenCz/bazin/issues/new?template=feature-request.yml">Request Feature</a>
   </p>
 </div>
 
@@ -70,7 +70,7 @@ To get a local copy running for development or testing, follow the steps below.
 #### Development (build and run locally)
 1. Clone the repository
 ```sh
-git clone https://github.com/lukas-sgx/bazin.git
+git clone https://github.com/OpenCz/bazin.git
 cd bazin
 ```
 2. Build and run in development
@@ -102,7 +102,7 @@ For more advanced deployment and configuration examples, check the `examples/` a
 - Improve plugin/runner integrations
 - Add web UI for pipeline monitoring
 
-See the [open issues](https://github.com/lukas-sgx/bazin/issues) for a full list of proposed features and known issues.
+See the [open issues](https://github.com/OpenCz/bazin/issues) for a full list of proposed features and known issues.
 
 ## Contributing
 
@@ -110,8 +110,8 @@ Contributions welcome — please follow the guidelines in [CONTRIBUTING.md](./CO
 
 ### Top contributors:
 
-<a href="https://github.com/lukas-sgx/bazin/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=lukas-sgx/bazin" alt="contrib.rocks image" />
+<a href="https://github.com/OpenCz/bazin/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=OpenCz/bazin" alt="contrib.rocks image" />
 </a>
 
 ## License

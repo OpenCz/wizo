@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 description = "Light Self Hosted CI/CD runner"
-repository = "https://github.com/lukas-sgx/bazin"
+repository = "https://github.com/OpenCz/bazin"
 license-file = "LICENSE"
 authors = ["lukas-sgx <lukas.soigneux@epitech.eu>"]
 
