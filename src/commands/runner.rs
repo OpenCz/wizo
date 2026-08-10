@@ -35,7 +35,7 @@ pub fn handle(dry_run: bool, _jobs: u32) {
     for workflow in workflows.unwrap_or_default() {
         let workflow_item = modules::parser::workflow_file(&workflow);
 
-        println!("{:?}",workflow_item.unwrap().on);
+        println!("{:?}", workflow_item.unwrap().on);
     }
     pb.finish_and_clear();
     if dry_run {
