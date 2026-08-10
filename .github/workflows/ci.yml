@@ -83,7 +83,7 @@ jobs:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           run: |
             if [[ "${{ github.ref_name }}" == "main" ]]; then
-                AHEAD_COMMITS=$(gh api repos/${{ github.repository }}/compare/statging...${{ github.ref_name }} --jq '.ahead_by')
+                AHEAD_COMMITS=$(gh api repos/${{ github.repository }}/compare/staging...${{ github.ref_name }} --jq '.ahead_by')
             else
                 AHEAD_COMMITS=$(gh api repos/${{ github.repository }}/compare/main...${{ github.ref_name }} --jq '.ahead_by')
             fi
