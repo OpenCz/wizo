@@ -1,24 +1,24 @@
 <div align="center">
-  <a href="https://github.com/lukas-sgx/bazin/">
-    <img src="https://github.com/lukas-sgx/bazin/blob/main/assets/bazin-logo.png?raw=true" alt="Logo" height="180" style="border-radius: 10px">
+  <a href="https://github.com/OpenCz/wizo/">
+    <img src="https://github.com/OpenCz/wizo/blob/main/assets/wizo-logo.png?raw=true" alt="Logo" height="180" style="border-radius: 10px">
   </a>
 
-  <h3 align="center">Bazin</h3>
+  <h3 align="center">wizo</h3>
 
-  [![License](https://img.shields.io/github/license/lukas-sgx/bazin?style=for-the-badge)](./LICENSE)
-  [![Build Status](https://img.shields.io/github/actions/workflow/status/lukas-sgx/bazin/ci.yml?style=for-the-badge)](https://github.com/lukas-sgx/bazin/actions)
+  [![License](https://img.shields.io/github/license/OpenCz/wizo?style=for-the-badge)](./LICENSE)
+  [![Build Status](https://img.shields.io/github/actions/workflow/status/OpenCz/wizo/ci.yml?style=for-the-badge)](https://github.com/OpenCz/wizo/actions)
 
   <p align="center">
     Light Self Hosted CI/CD runner.
     <br />
-    <a href="https://github.com/lukas-sgx/bazin"><strong>Explore the repository »</strong></a>
+    <a href="https://github.com/OpenCz/wizo"><strong>Explore the repository »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/lukas-sgx/bazin">View Demo</a>
+    <a href="https://github.com/OpenCz/wizo">View Demo</a>
     &middot;
-    <a href="https://github.com/lukas-sgx/bazin/issues/new?template=bug-report.yml">Report Bug</a>
+    <a href="https://github.com/OpenCz/wizo/issues/new?template=bug-report.yml">Report Bug</a>
     &middot;
-    <a href="https://github.com/lukas-sgx/bazin/issues/new?template=feature-request.yml">Request Feature</a>
+    <a href="https://github.com/OpenCz/wizo/issues/new?template=feature-request.yml">Request Feature</a>
   </p>
 </div>
 
@@ -49,7 +49,7 @@
 
 ## About The Project
 
-Bazin is a lightweight, self-hosted CI/CD tool implemented in Rust. It aims to provide a simple, extensible pipeline runner for small teams and personal projects that prefer a minimal, local-first continuous integration and deployment solution.
+wizo is a lightweight, self-hosted CI/CD tool implemented in Rust. It aims to provide a simple, extensible pipeline runner for small teams and personal projects that prefer a minimal, local-first continuous integration and deployment solution.
 
 ### Built With
 
@@ -70,8 +70,8 @@ To get a local copy running for development or testing, follow the steps below.
 #### Development (build and run locally)
 1. Clone the repository
 ```sh
-git clone https://github.com/lukas-sgx/bazin.git
-cd bazin
+git clone https://github.com/OpenCz/wizo.git
+cd wizo
 ```
 2. Build and run in development
 ```sh
@@ -83,7 +83,7 @@ cargo run -- help
 ```sh
 cargo build --release
 # run the produced binary
-./target/release/bazin --help
+./target/release/wizo --help
 ```
 
 ## Usage
@@ -102,7 +102,7 @@ For more advanced deployment and configuration examples, check the `examples/` a
 - Improve plugin/runner integrations
 - Add web UI for pipeline monitoring
 
-See the [open issues](https://github.com/lukas-sgx/bazin/issues) for a full list of proposed features and known issues.
+See the [open issues](https://github.com/OpenCz/wizo/issues) for a full list of proposed features and known issues.
 
 ## Contributing
 
@@ -110,8 +110,8 @@ Contributions welcome — please follow the guidelines in [CONTRIBUTING.md](./CO
 
 ### Top contributors:
 
-<a href="https://github.com/lukas-sgx/bazin/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=lukas-sgx/bazin" alt="contrib.rocks image" />
+<a href="https://github.com/OpenCz/wizo/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=OpenCz/wizo" alt="contrib.rocks image" />
 </a>
 
 ## License

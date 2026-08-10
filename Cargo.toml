@@ -1,9 +1,17 @@
 [package]
-name = "bazin"
-version = "0.0.1-alpha"
+name = "wizo"
+version = "0.1.0"
 edition = "2024"
+
+description = "Light Self Hosted CI/CD runner"
+repository = "https://github.com/OpenCz/wizo"
+license-file = "LICENSE"
+authors = ["lukas-sgx <lukas.soigneux@epitech.eu>"]
 
 [dependencies]
 clap = { version = "4.6.6", features = ["derive"] }
 colored = "3.1.1"
 indicatif = "0.18.6"
+
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"

@@ -7,7 +7,6 @@ pub struct Args {
     pub command: Commands,
 }
 
-
 #[derive(Subcommand, Debug)]
 pub enum Commands {
     Runner {
