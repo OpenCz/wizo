@@ -12,6 +12,17 @@ permissions:
   contents: read
 
 jobs:
+  sanity-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: fmt
+        run: |
+          cargo fmt
+          git diff --exit-code && exit $?
+
   build:
     runs-on: ${{ matrix.platform.os || 'ubuntu-latest' }}
     strategy:
