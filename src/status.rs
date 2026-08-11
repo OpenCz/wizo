@@ -1,7 +1,7 @@
 use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 use std::{borrow::Cow, time::Duration};
 
-#[warn(unused)]
+#[allow(unused)]
 pub fn new_progress_attach_multi<S>(mp: &MultiProgress, msg: S) -> ProgressBar
 where
     S: Into<Cow<'static, str>>,
