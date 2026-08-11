@@ -16,5 +16,5 @@ pub enum Commands {
         #[arg(short, long, default_value_t = 1)]
         jobs: u32,
     },
-    Check
+    Check,
 }

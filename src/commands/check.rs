@@ -1,7 +1,10 @@
-use std::{fs, io, path::{Path, PathBuf}};
-use std::error::Error;
-use crate::{modules, status};
 use crate::modules::parser::GitHubWorkflow;
+use crate::{modules, status};
+use std::error::Error;
+use std::{
+    fs, io,
+    path::{Path, PathBuf},
+};
 
 fn get_github_workflows() -> io::Result<Vec<PathBuf>> {
     let path = Path::new(".github/workflows");
@@ -15,14 +18,14 @@ fn get_github_workflows() -> io::Result<Vec<PathBuf>> {
     let workflows = entries
         .filter_map(|entry| {
             let path = entry.ok()?.path();
-            
-            if path.is_file() {
-                if let Some(ext) = path.extension() {
-                    if ext == "yml" || ext == "yaml" {
-                        return Some(path);
-                    }
-                }
+
+            if path.is_file()
+                && let Some(ext) = path.extension()
+                && (ext == "yml" || ext == "yaml")
+            {
+                return Some(path);
             }
+
             None
         })
         .collect();
@@ -47,7 +50,9 @@ pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
         let path_str = workflow_path.to_string_lossy();
 
         match modules::parser::workflow_file(&path_str) {
-            Ok(workflow_item) => {list_github.push(workflow_item);},
+            Ok(workflow_item) => {
+                list_github.push(workflow_item);
+            }
             Err(err) => list_err.push(err),
         }
     }
@@ -60,11 +65,11 @@ pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
     if list_github.is_empty() || !list_err.is_empty() {
         return None;
     }
-    return Some(list_github);
+    Some(list_github)
 }
 
 pub fn checker() {
-    if let Some(workflow) = workflows() {
+    if let Some(_workflow) = workflows() {
         println!("Workflows successfully configured.");
     }
 }
