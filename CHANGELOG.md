@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.0.1-alpha](https://github.com/OpenCz/wizo/compare/wizo-v0.0.1-alpha...wizo-v0.0.1-alpha) (2026-08-11)
+
+
+* release v0.0.1-alpha ([7b2fcdc](https://github.com/OpenCz/wizo/commit/7b2fcdc73ae3a2fa6aaa32822243fbf82ba65cf0))
+
+
+### New APIs / Features
+
+* add other case ([23d7a53](https://github.com/OpenCz/wizo/commit/23d7a539c551c92b4bbf886646c55819d708953c))
+
+
+### Bug Fixes
+
+* allow unused function ([9252b89](https://github.com/OpenCz/wizo/commit/9252b89223e70b550e670f6da7cdc88a15a9fd59))
+* update description ([139446c](https://github.com/OpenCz/wizo/commit/139446ca6c91e7b211e934019941981b266afb3b))
+* update license ([88ea49f](https://github.com/OpenCz/wizo/commit/88ea49ff7c0afa04c809714ad7b6248faae30da4))
+
 ## [0.0.1-alpha](https://github.com/OpenCz/wizo/compare/wizo-v0.0.1-alpha...wizo-v0.0.1-alpha) (2026-08-10)
 
 
