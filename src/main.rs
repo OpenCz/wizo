@@ -12,8 +12,6 @@ fn main() {
 
     match args.command {
         Commands::Runner { dry_run, jobs } => commands::runner::handle(dry_run, jobs),
-        Commands::Check => {
-            let _workflows = commands::check::workflows();
-        },
+        Commands::Check => commands::check::checker(),
     }
 }

@@ -62,3 +62,9 @@ pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
     }
     return Some(list_github);
 }
+
+pub fn checker() {
+    if let Some(workflow) = workflows() {
+        println!("Workflows successfully configured.");
+    }
+}
