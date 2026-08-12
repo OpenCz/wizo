@@ -7,7 +7,7 @@ use std::{
     thread,
 };
 
-fn set_time_duration(msg: String) {}
+// fn set_time_duration(msg: String) {}
 
 fn launch_workflow(workflow: &Arc<GitHubWorkflow>, pb: &ProgressBar) {
     let data = sync::Mutex::from(workflow);
