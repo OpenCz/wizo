@@ -48,6 +48,7 @@ jobs:
           branch: ${{ github.event.workflow_run.head_branch }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REF: refs/heads/${{ github.event.workflow_run.head_branch }}
 
   build-deploy:
     needs: release
@@ -60,20 +61,20 @@ jobs:
             target: x86_64-unknown-linux-musl
             use-cross: true
             output: wizo
-            asset_suffix: linux-x86_64
+            suffix: -linux-x86_64
             
           - name: linux-aarch64
             target: aarch64-unknown-linux-musl
             use-cross: true
             output: wizo
-            asset_suffix: linux-aarch64
+            suffix: -linux-aarch64
             
           - name: windows-x86_64
             os: windows-latest
             target: x86_64-pc-windows-msvc
             use-cross: false
             output: wizo.exe
-            asset_suffix: windows-x86_64.exe
+            suffix: .exe
 
     steps:
     - uses: actions/checkout@v6
@@ -101,14 +102,14 @@ jobs:
         else
           cargo build -r --target ${{ matrix.platform.target }}
         fi
-        cp ./target/${{ matrix.platform.target }}/release/${{ matrix.platform.output }} ./target/${{ matrix.platform.target }}/release/${{ needs.release.outputs.tag_name }}-${{ matrix.platform.asset_suffix }}
+        cp ./target/${{ matrix.platform.target }}/release/${{ matrix.platform.output }} ./target/${{ matrix.platform.target }}/release/wizo-${{ needs.release.outputs.tag_name }}${{ matrix.platform.suffix }}
       shell: bash
 
     - name: Push Build Artifacts
       uses: actions/upload-artifact@v7
       with:
         name: wizo-artifact-${{ matrix.platform.name }}
-        path: target/${{ matrix.platform.target }}/release/${{ needs.release.outputs.tag_name }}-${{ matrix.platform.asset_suffix }}
+        path: target/${{ matrix.platform.target }}/release/wizo-${{ needs.release.outputs.tag_name }}${{ matrix.platform.suffix }}
         retention-days: 5
 
   github-release:
@@ -121,13 +122,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: ./dist
-          pattern: wizo-artifact-*
+          pattern: wizo-*
           merge-multiple: true
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v3
         with:
-          files: ./dist/*
+          files: ./dist/wizo-*
           tag_name: ${{ needs.release.outputs.tag_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
