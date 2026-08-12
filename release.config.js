@@ -25,9 +25,7 @@ module.exports = {
       }
     }],
 
-    ['@semantic-release/cargo', {
-      check: true
-    }],
+    ["@semantic-release-cargo/semantic-release-cargo"],
 
     ['@semantic-release/git', {
       assets: ['Cargo.toml', 'Cargo.lock'],
