@@ -1,11 +1,11 @@
 use crate::modules::parser::GitHubWorkflow;
 use crate::{modules, status};
+use colored::Colorize;
 use std::error::Error;
 use std::{
     fs, io,
     path::{Path, PathBuf},
 };
-use colored::Colorize;
 
 fn get_github_workflows() -> io::Result<Vec<PathBuf>> {
     let path = Path::new(".github/workflows");
@@ -37,7 +37,7 @@ fn get_github_workflows() -> io::Result<Vec<PathBuf>> {
 pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
     let mut list_err: Vec<Box<dyn Error>> = Vec::new();
     let mut list_github: Vec<GitHubWorkflow> = Vec::new();
-    
+
     let pb = status::new_progress("Check workflow files");
     let msg_err: String;
 
@@ -45,7 +45,7 @@ pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
         Ok(w) => w,
         Err(e) => {
             eprintln!("{e}");
-            
+
             msg_err = format!("\r{} workflow file structures aren't valid.", "❌".red());
             pb.finish_with_message(msg_err);
             return None;
@@ -80,7 +80,6 @@ pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
 
 pub fn checker() {
     if let Some(_workflow) = workflows() {
-        println!("{} Workflow file structures are valid.",
-        "✔".green());
+        println!("{} Workflow file structures are valid.", "✔".green());
     }
 }
