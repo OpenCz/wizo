@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.0.1-beta](https://github.com/OpenCz/wizo/compare/wizo-v0.0.1-alpha...wizo-v0.0.1-beta) (2026-08-12)
+
+
+* release v0.0.1-alpha ([7b2fcdc](https://github.com/OpenCz/wizo/commit/7b2fcdc73ae3a2fa6aaa32822243fbf82ba65cf0))
+* release v0.0.1-beta ([29601c8](https://github.com/OpenCz/wizo/commit/29601c8daafc596b4b91231b40efe91b37739e42))
+
+
+### New APIs / Features
+
+* add command check ([7d9022b](https://github.com/OpenCz/wizo/commit/7d9022b2b652ab5b9c2588b91e364c173966c3fa))
+* add other case ([23d7a53](https://github.com/OpenCz/wizo/commit/23d7a539c551c92b4bbf886646c55819d708953c))
+* add progress bar ([cda5896](https://github.com/OpenCz/wizo/commit/cda589645c50b6ea6e0467a271f7e2478df13f72))
+* implement parse checker workflow file ([422b627](https://github.com/OpenCz/wizo/commit/422b6277536ed5ba8df581c301592a7602bbdc72))
+
+
+### Bug Fixes
+
+* allow unused function ([9252b89](https://github.com/OpenCz/wizo/commit/9252b89223e70b550e670f6da7cdc88a15a9fd59))
+* update description ([139446c](https://github.com/OpenCz/wizo/commit/139446ca6c91e7b211e934019941981b266afb3b))
+* update license ([88ea49f](https://github.com/OpenCz/wizo/commit/88ea49ff7c0afa04c809714ad7b6248faae30da4))
+
 ## [0.0.1-alpha](https://github.com/OpenCz/wizo/compare/wizo-v0.0.1-alpha...wizo-v0.0.1-alpha) (2026-08-11)
 
 
