@@ -36,10 +36,10 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      # - name: Pre-install Semantic Release Plugins
-      #   run: |
-      #     npm init -y
-      #     npm install semantic-release @semantic-release/git @semantic-release/cargo conventional-changelog-conventionalcommits --no-audit
+      - name: Pre-install Semantic Release Plugins
+        run: |
+          npm init -y
+          npm install semantic-release @semantic-release/git @semantic-release-cargo/semantic-release-cargo conventional-changelog-conventionalcommits --no-audit
 
       - name: Run Semantic Release
         id: semantic
