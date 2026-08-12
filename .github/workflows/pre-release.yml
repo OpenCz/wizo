@@ -1,10 +1,10 @@
-name: Release Stable
+name: Pre-Release
 
 on:
   workflow_run:
     workflows: ["wizo - CI"]
     types: [completed]
-    branches: [stable]
+    branches: [staging]
 
 jobs:
   release:
@@ -26,7 +26,7 @@ jobs:
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          target-branch: stable
+          target-branch: staging
           config-file: release-config.json
           manifest-file: .release-manifest.json
 
@@ -34,7 +34,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           fetch-depth: 0
-          ref: stable
+          ref: staging
 
   build-deploy:
     needs: release
