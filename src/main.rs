@@ -11,8 +11,7 @@ fn main() {
     let args = args::Args::parse();
 
     match args.command {
-        Commands::Runner { dry_run, jobs } => {
-            commands::runner::handle(dry_run, jobs);
-        }
+        Commands::Runner { dry_run, jobs } => commands::runner::handle(dry_run, jobs),
+        Commands::Check => commands::check::checker(),
     }
 }

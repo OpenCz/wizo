@@ -248,7 +248,7 @@ pub enum PolymorphicConcurrency {
 #[serde(untagged)]
 pub enum PolymorphicJob {
     Standard(Box<StandardJob>),
-    Reusable(ReusableWorkflowJob),
+    Reusable(Box<ReusableWorkflowJob>),
 }
 
 #[derive(Debug, Serialize, Deserialize)]
