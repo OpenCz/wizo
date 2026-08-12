@@ -5,6 +5,7 @@ use std::{
     fs, io,
     path::{Path, PathBuf},
 };
+use colored::Colorize;
 
 fn get_github_workflows() -> io::Result<Vec<PathBuf>> {
     let path = Path::new(".github/workflows");
@@ -36,12 +37,17 @@ fn get_github_workflows() -> io::Result<Vec<PathBuf>> {
 pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
     let mut list_err: Vec<Box<dyn Error>> = Vec::new();
     let mut list_github: Vec<GitHubWorkflow> = Vec::new();
-
+    
     let pb = status::new_progress("Check workflow files");
+    let msg_err: String;
+
     let workflows = match get_github_workflows() {
         Ok(w) => w,
         Err(e) => {
             eprintln!("{e}");
+            
+            msg_err = format!("\r{} workflow file structures aren't valid.", "❌".red());
+            pb.finish_with_message(msg_err);
             return None;
         }
     };
@@ -57,11 +63,15 @@ pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
         }
     }
 
-    pb.finish_and_clear();
+    if !list_err.is_empty() {
+        msg_err = format!("\r{} workflow file structures aren't valid.\n", "❌".red());
+        pb.finish_with_message(msg_err);
+    }
 
     for err in list_err.iter() {
-        eprintln!("{err}");
+        eprintln!("\r{err}");
     }
+
     if list_github.is_empty() || !list_err.is_empty() {
         return None;
     }
@@ -70,6 +80,7 @@ pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
 
 pub fn checker() {
     if let Some(_workflow) = workflows() {
-        println!("Workflows successfully configured.");
+        println!("{} Workflow file structures are valid.",
+        "✔".green());
     }
 }
