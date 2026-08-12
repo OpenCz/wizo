@@ -36,15 +36,16 @@ jobs:
         with:
           node-version: 'lts/*'
 
+      - name: Pre-install Semantic Release Plugins
+        run: |
+          npm init -y
+          npm install semantic-release @semantic-release/git @semantic-release/cargo conventional-changelog-conventionalcommits --no-audit
+
       - name: Run Semantic Release
         id: semantic
         uses: cycjimmy/semantic-release-action@v6
         with:
           branch: ${{ github.event.workflow_run.head_branch }}
-          extra_plugins: |
-            @semantic-release/git
-            @semantic-release/cargo
-            conventional-changelog-conventionalcommits
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -59,23 +60,26 @@ jobs:
             target: x86_64-unknown-linux-musl
             use-cross: true
             output: wizo
-            release: ${{ needs.release.outputs.tag_name }}-linux-x86_64
+            asset_suffix: linux-x86_64
             
           - name: linux-aarch64
             target: aarch64-unknown-linux-musl
             use-cross: true
             output: wizo
-            release: ${{ needs.release.outputs.tag_name }}-linux-aarch64
+            asset_suffix: linux-aarch64
             
           - name: windows-x86_64
             os: windows-latest
             target: x86_64-pc-windows-msvc
             use-cross: false
             output: wizo.exe
-            release: ${{ needs.release.outputs.tag_name }}-windows-x86_64.exe
+            asset_suffix: windows-x86_64.exe
 
     steps:
     - uses: actions/checkout@v6
+      with:
+        ref: ${{ needs.release.outputs.tag_name }}
+
     - name: Install Rust Toolchain
       uses: dtolnay/rust-toolchain@stable
       with:
@@ -97,32 +101,39 @@ jobs:
         else
           cargo build -r --target ${{ matrix.platform.target }}
         fi
-        cp ./target/${{ matrix.platform.target }}/release/${{ matrix.platform.output }} ./target/${{ matrix.platform.target }}/release/${{ matrix.platform.release }}
+        cp ./target/${{ matrix.platform.target }}/release/${{ matrix.platform.output }} ./target/${{ matrix.platform.target }}/release/${{ needs.release.outputs.tag_name }}-${{ matrix.platform.asset_suffix }}
       shell: bash
 
     - name: Push Build Artifacts
       uses: actions/upload-artifact@v7
       with:
-        name: ${{ matrix.platform.release }}
-        path: target/${{ matrix.platform.target }}/release/${{ matrix.platform.release }}
+        name: wizo-artifact-${{ matrix.platform.name }}
+        path: target/${{ matrix.platform.target }}/release/${{ needs.release.outputs.tag_name }}-${{ matrix.platform.asset_suffix }}
         retention-days: 5
 
-    - name: Download Artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: ${{ matrix.platform.release }}
-        path: ./dist
+  github-release:
+    needs: [release, build-deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./dist
+          pattern: wizo-artifact-*
+          merge-multiple: true
 
-    - name: Upload to GitHub Release
-      uses: softprops/action-gh-release@v3
-      with:
-        files: ./dist/*
-        tag_name: ${{ needs.release.outputs.tag_name }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: ./dist/*
+          tag_name: ${{ needs.release.outputs.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-crates-io:
-    needs: [release, build-deploy]
+    needs: [release, github-release]
     runs-on: ubuntu-latest
     environment: release
 
