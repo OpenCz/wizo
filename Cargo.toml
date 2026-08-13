@@ -1,6 +1,6 @@
 [package]
 name = "wizo"
-version = "0.0.1-beta"
+version = "0.0.1-beta.2"
 edition = "2024"
 
 description = "Light Self Hosted CI/CD"

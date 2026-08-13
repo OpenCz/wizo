@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.0.1-beta.2](https://github.com/OpenCz/wizo/compare/wizo-v0.0.1-beta...wizo-v0.0.1-beta.2) (2026-08-13)
+
+
+* release 0.0.1-beta.2 ([f022a98](https://github.com/OpenCz/wizo/commit/f022a9864d493ffb09a4196f2061df7569ec6b29))
+
+
+### New APIs / Features
+
+* add dependabot ([640eef5](https://github.com/OpenCz/wizo/commit/640eef55faf9fe1290dabd56b42e7c054844f58c))
+* add install plugins ([560a26c](https://github.com/OpenCz/wizo/commit/560a26c6588e36592926ffb5b9842294d610beda))
+* set multi jobs run ([820364a](https://github.com/OpenCz/wizo/commit/820364a9744f618d30ae53b4bd88b01976434fa2))
+* switch from release please to semantic-release ([14db2b0](https://github.com/OpenCz/wizo/commit/14db2b08ba958758b964ab0fa2ef4f2437334ac4))
+
+
+### Bug Fixes
+
+* add GIHUB_REF & update artifact name ([aa899db](https://github.com/OpenCz/wizo/commit/aa899db325f25d37785df402bd822037a93fd8f3))
+* comeback to release please ([6a47c16](https://github.com/OpenCz/wizo/commit/6a47c16fca6120d9fbf0552d2cb2d90de4f41ea9))
+* comment set time duration ([793846e](https://github.com/OpenCz/wizo/commit/793846ed2b2ec59485a909c53489c5334858f887))
+* delete preinstall ([24c724a](https://github.com/OpenCz/wizo/commit/24c724acfcdd766f40be0467c8e98823aa44368c))
+* delete semantic release conf -&gt; release-please ([132e03b](https://github.com/OpenCz/wizo/commit/132e03bd390d4d9b6bb21660cacfe8aec26b6bb4))
+* resolve error on release ([593fb8f](https://github.com/OpenCz/wizo/commit/593fb8fa9881f0195569d4f80c9e7173ea4a7984))
+* update name package cargo semantic ([eb9eaa6](https://github.com/OpenCz/wizo/commit/eb9eaa63fa2560856ad4492fd5a068fa9827c805))
+
 ## [0.0.1-beta](https://github.com/OpenCz/wizo/compare/wizo-v0.0.1-alpha...wizo-v0.0.1-beta) (2026-08-12)
 
 
