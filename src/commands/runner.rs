@@ -1,45 +1,51 @@
-use std::{fs, io, path::Path};
+use indicatif::{MultiProgress, ProgressBar};
 
-use crate::{modules, status};
+use crate::{commands::check::workflows, modules::parser::GitHubWorkflow, status};
+use core::time;
+use std::{
+    sync::{self, Arc},
+    thread,
+};
 
-fn get_github_workflows() -> io::Result<Vec<String>> {
-    let path = Path::new(".github/workflows");
+// fn set_time_duration(msg: String) {}
 
-    if !path.exists() {
-        return Ok(vec![]);
-    }
+fn launch_workflow(workflow: &Arc<GitHubWorkflow>, pb: &ProgressBar) {
+    let data = sync::Mutex::from(workflow);
+    let _res = data.try_lock();
 
-    let entries = fs::read_dir(path)?;
-
-    let workflows = entries
-        .filter_map(|entry| {
-            let path = entry.ok()?.path();
-
-            if path.is_file() {
-                let ext = path.extension()?.to_str()?;
-                if ext == "yml" || ext == "yaml" {
-                    return Some(path.display().to_string());
-                }
-            }
-            None
-        })
-        .collect();
-
-    Ok(workflows)
+    thread::sleep(time::Duration::from_secs(rand::random_range(0..13)));
+    let msg = format!(
+        "Job `{}` done...",
+        workflow.name.as_deref().unwrap_or_default()
+    );
+    pb.finish_with_message(msg);
 }
 
 pub fn handle(dry_run: bool, _jobs: u32) {
-    let workflows = get_github_workflows();
-    let pb = status::new_progress("Parse all workflow files");
+    if let Some(workflows) = workflows() {
+        if dry_run {
+            return;
+        }
 
-    for workflow in workflows.unwrap_or_default() {
-        let workflow_item = modules::parser::workflow_file(&workflow);
+        let mb = MultiProgress::new();
+        let mut handles = vec![];
 
-        println!("{:?}", workflow_item.unwrap().on);
+        for workflow in workflows {
+            let workflow = Arc::new(workflow);
+            let name = format!(
+                "Waiting `{}` ...",
+                workflow.name.as_deref().unwrap_or_default()
+            );
+            let pb = status::new_progress_attach_multi(&mb, name);
+            let subthread = thread::spawn(move || {
+                launch_workflow(&workflow, &pb);
+            });
+
+            handles.push(subthread);
+        }
+
+        for handle in handles {
+            handle.join().unwrap();
+        }
     }
-    pb.finish_and_clear();
-    if dry_run {
-        return;
-    }
-    println!("next part");
 }
