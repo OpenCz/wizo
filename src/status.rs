@@ -1,17 +1,17 @@
 use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 use std::{borrow::Cow, time::Duration};
 
-#[allow(unused)]
-pub fn new_progress_attach_multi<S>(mp: &MultiProgress, msg: S) -> ProgressBar
+pub fn new_progress_attach_multi<S>(mp: &MultiProgress, msg: S, color: &str) -> ProgressBar
 where
     S: Into<Cow<'static, str>>,
 {
-    let pb = mp.add(ProgressBar::new_spinner());
+    let pb = mp.add(ProgressBar::new_spinner());    
+    let template = format!("{{spinner:.{}}} {{wide_msg}}", color);
 
     pb.set_style(
         ProgressStyle::default_spinner()
             .tick_chars("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏")
-            .template("{spinner:.green} {msg}")
+            .template(&template)
             .unwrap(),
     );
 
@@ -20,16 +20,17 @@ where
     pb
 }
 
-pub fn new_progress<S>(msg: S) -> ProgressBar
+pub fn new_progress<S>(msg: S, color: &str) -> ProgressBar
 where
     S: Into<Cow<'static, str>>,
 {
     let pb = ProgressBar::new_spinner();
+    let template = format!("{{spinner:.{}}} {{wide_msg}}", color);
 
     pb.set_style(
         ProgressStyle::default_spinner()
             .tick_chars("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏")
-            .template("{spinner:.green} {msg}")
+            .template(&template)
             .unwrap(),
     );
 

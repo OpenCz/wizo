@@ -38,7 +38,7 @@ pub fn workflows() -> Option<Vec<GitHubWorkflow>> {
     let mut list_err: Vec<Box<dyn Error>> = Vec::new();
     let mut list_github: Vec<GitHubWorkflow> = Vec::new();
 
-    let pb = status::new_progress("Check workflow files");
+    let pb = status::new_progress("Check workflow files", "green");
     let msg_err: String;
 
     let workflows = match get_github_workflows() {

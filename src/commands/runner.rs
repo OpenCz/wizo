@@ -18,6 +18,15 @@ fn launch_workflow(workflow: &Arc<GitHubWorkflow>, pb: &ProgressBar) {
         "Job `{}` done...",
         workflow.name.as_deref().unwrap_or_default()
     );
+
+    pb.set_style(
+        indicatif::ProgressStyle::default_spinner()
+            .tick_chars("⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏") 
+            .template("{prefix:.green} {wide_msg}")
+            .unwrap(),
+    );
+
+    pb.set_prefix("✔");
     pb.finish_with_message(msg);
 }
 
@@ -36,7 +45,7 @@ pub fn handle(dry_run: bool, _jobs: u32) {
                 "Waiting `{}` ...",
                 workflow.name.as_deref().unwrap_or_default()
             );
-            let pb = status::new_progress_attach_multi(&mb, name);
+            let pb = status::new_progress_attach_multi(&mb, name, "yellow");
             let subthread = thread::spawn(move || {
                 launch_workflow(&workflow, &pb);
             });
